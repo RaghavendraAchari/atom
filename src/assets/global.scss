@@ -1,0 +1,194 @@
+/* Color Theme Swatches in Hex */
+
+/* Color Theme Swatches in RGBA */
+$Teal-and-Gray-1-rgba: rgba(0, 116, 124, 1);
+$Teal-and-Gray-2-rgba: rgba(0, 186, 200, 1);
+$Teal-and-Gray-3-rgba: rgba(202, 202, 202, 1);
+$Teal-and-Gray-4-rgba: rgba(135, 135, 135, 1);
+$Teal-and-Gray-5-rgba: rgba(31, 31, 33, 1);
+
+/* Color Theme Swatches in HSLA */
+$Teal-and-Gray-1-hsla: hsla(183, 100, 24, 1);
+$Teal-and-Gray-2-hsla: hsla(184, 100, 39, 1);
+$Teal-and-Gray-3-hsla: hsla(0, 0, 79, 1);
+$Teal-and-Gray-4-hsla: hsla(0, 0, 52, 1);
+$Teal-and-Gray-5-hsla: hsla(240, 3, 12, 1);
+
+$Teal-and-Gray-2-hex: #00bbc9;
+$font-color-button: #cacaca;
+$footer-color: #878787;
+$font-color: #202022;
+$button-color: #00747c;
+
+//variables
+//colours global
+:root {
+	--button-background-colour: #00747c;
+	--button-font-color: #cacaca;
+	--footer-background-color: #202022;
+	--border-size: 0.5px;
+	--border: 0.5px solid rgba(0, 0, 0, 0.25);
+	--button-shadow: 0 2px 10px rgba(0, 0, 0, 0.33);
+	--card-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	--button-padding: 7px 20px;
+	--button-margin: 20px;
+
+	//dynamic values
+	//global
+	--title-font-size: 18px;
+	--text-font-size: 16px;
+	--main-padding: 15px;
+
+	//header nav
+	--navbar-height: 8vh;
+	--brand-name-font-size: 20px;
+	--content-width: 80%;
+	--arrow-img-size: 23px;
+	--navs-padding: 10px 0 10px 0;
+	--navs-margin: 0 0 0 20px;
+	--nav-text-font-size: 16px;
+
+	//footer
+	--footer-height: 6vh;
+
+	//main window
+	--main-window-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+
+	--profilephoto-width: 30vw;
+
+	--pills-padding: 10px 20px;
+	--pills-margin: 10px;
+}
+
+@media only screen and (min-width: 320px) {
+	:root {
+		--brand-name-font-size: 12px;
+		--content-width: 90%;
+		--navbar-height: 6vh;
+		--footer-height: 4vh;
+		--main-window-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+
+		--main-padding: 7px;
+
+		--title-font-size: 12px;
+		--text-font-size: 13px;
+		--nav-text-font-size: 11px;
+
+		--arrow-img-size: 15px;
+
+		// --button-padding: 5px 15px;
+		--button-margin: 10px;
+		--navs-padding: 8px 0 8px 0;
+		--navs-margin: 0 0 0 8px;
+		--pills-padding: 6px 12px;
+		--pills-margin: 6px;
+	}
+}
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 480px) {
+	:root {
+		--brand-name-font-size: 12px;
+		--content-width: 90%;
+		--navbar-height: 6vh;
+		--footer-height: 4vh;
+		--main-window-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+		--main-padding: 7px;
+
+		--title-font-size: 14px;
+		--text-font-size: 13px;
+		--nav-text-font-size: 12px;
+
+		--arrow-img-size: 17px;
+
+		// --button-padding: 5px 15px;
+		--button-margin: 10px;
+		--navs-padding: 8px 0 8px 0;
+		--navs-margin: 0 0 0 8px;
+		--pills-padding: 8px 16px;
+		--pills-margin: 7px;
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+	:root {
+		--brand-name-font-size: 12px;
+
+		--title-font-size: 16px;
+		--text-font-size: 14px;
+		--arrow-img-size: 20px;
+
+		// --button-padding: 7px 20px;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+	:root {
+		--brand-name-font-size: 20px;
+		--content-width: 80%;
+		--navbar-height: 8vh;
+		--footer-height: 6vh;
+		--main-window-height: calc(100vh - var(--navbar-height) - var(--footer-height));
+
+		--title-font-size: 18px;
+		--text-font-size: 16px;
+		--nav-text-font-size: 16px;
+
+		--arrow-img-size: 23px;
+
+		// --button-padding: 7px 20px;
+		--navs-padding: 10px 0 10px 0;
+		--navs-margin: 0 0 0 20px;
+		--pills-padding: 10px 20px;
+		--pills-margin: 10px;
+		--main-padding: 15px;
+	}
+}
+
+// /* Large Devices, Wide Screens */
+// @media only screen and (min-width: 1200px) {
+// 	:root {
+// 		--brand-name-font-size: 20px;
+// 	}
+// }
+
+//global
+$border-size: 0.5px;
+$border-color: rgba(0, 0, 0, 0.25);
+$nav-height: 8vh;
+
+//variable across devices
+//desktop
+$brand-name-font-size: 20px;
+
+$header-font-size: 24px;
+$padding: 20px;
+$padding-button: 7px 20px;
+$nav-height: 8vh;
+$footer-height: 6vh;
+$main-window-height: calc(100vh - $nav-height - $footer-height);
+
+//mobile
+$padding-mobile: 20px;
+$nav-height-mobile: 8vh;
+$footer-height-mobile: 6vh;
+$main-window-height-mobile: calc(100vh - $nav-height - $footer-height);
+
+/* Custom, iPhone Retina */
+// @media only screen and (min-width : 320px) {
+
+// }
+
+// button styles
+$button-shadow: 0 2px 10px rgba(0, 0, 0, 0.33);
+
+//feedcard styles
+$card-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+// @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.text-left {
+	text-align: start;
+}
