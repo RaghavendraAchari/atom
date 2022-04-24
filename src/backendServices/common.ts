@@ -1,7 +1,5 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 
-const uri =
-	"mongodb+srv://raghavachari:1004@Mongodb@cluster0.yhvpv.mongodb.net/mongodb?retryWrites=true&w=majority";
 
 function getInterests() {
 	let interests = null;
