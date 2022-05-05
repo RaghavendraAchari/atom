@@ -39,20 +39,26 @@
 		</nav>
 	</header>
 	<div v-show="openInterestsDrawer" id="interests-drawer">
-		<div class="interest" v-for="interest in interests" :key="interest">
-			{{ interest }}
-		</div>
+		<button class="interest" v-for="interest in interests" :key="interest">
+			{{ interest.displayName }}
+		</button>
 	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
+import Category from "@/Models/Category";
 
 export default defineComponent({
 	name: "NavBar",
+	props: {
+		interests: {
+			type: Array as PropType<Category[]>,
+			required: true,
+		},
+	},
 	data() {
 		return {
-			interests: ["Photography", "Art", "Design", "Books"],
 			openInterestsDrawer: false,
 		};
 	},
@@ -137,7 +143,8 @@ header {
 #interests-drawer {
 	background-color: white;
 	padding: 2vh 2vw;
-	border-bottom: var(--border);
+	// border-bottom: var(--border);
+	box-shadow: var(--quote-card-shadow);
 	position: absolute;
 	top: var(--navbar-height);
 	width: 100%;
@@ -153,14 +160,15 @@ header {
 }
 
 .interest {
-	display: inline-block;
 	min-width: 200px;
 	padding: var(--button-padding);
 	margin: var(--button-margin);
 	color: black;
-	font-size: var(--title-font-size);
+	font-size: var(--text-font-size);
 	border: 0.5px solid $button-color;
 	border-radius: 5px;
+	background-color: white;
+	padding: var(--button-padding);
 	&:hover {
 		background-color: $button-color;
 		cursor: pointer;
@@ -171,6 +179,9 @@ header {
 }
 //media queries
 @media only screen and (min-width: 320px) {
+	.brandname {
+		text-align: left;
+	}
 	.name {
 		display: block;
 	}

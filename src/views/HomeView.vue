@@ -2,18 +2,7 @@
 	<div class="home">
 		<div class="title">Home :</div>
 		<LoaderImage v-if="!feedDetails.length" />
-		<div class="quotes" v-if="feedDetails.length">
-			<div class="window" v-if="quoteOpen">
-				<p class="quote">{{ quotes[0].quote }}</p>
-				<p class="author">- {{ quotes[0].author }}</p>
-			</div>
-			<div class="close-button">
-				<button @click="closeQuoteWindow">
-					<span v-if="quoteOpen">Close</span>
-					<span v-else>Open</span>
-				</button>
-			</div>
-		</div>
+		<QuoteBanner v-if="feedDetails.length" />
 		<FeedCard
 			v-for="feedDetail in feedDetails"
 			:key="feedDetail.id"
@@ -27,6 +16,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import FeedCard from "@/components/FeedCard.vue";
+import QuoteBanner from "@/components/QuoteBanner.vue";
 import LoaderImage from "@/components/common/Loader.vue";
 
 import FeedData from "@/Models/FeedData";
@@ -37,34 +27,22 @@ export default defineComponent({
 	components: {
 		FeedCard,
 		LoaderImage,
+		QuoteBanner,
 	},
 	data() {
 		return {
 			feedDetails: Array<FeedData>(),
 			feedType: "photo" as FeedType,
 			interests: [],
-			quotes: [
-				{
-					quote: "You can't be rich if you rent your time for someone else",
-					author: "Naval Ravikant",
-				},
-			],
-			quoteOpen: true,
 		};
 	},
-	methods: {
-		closeQuoteWindow() {
-			this.quoteOpen = !this.quoteOpen;
-		},
-	},
+	methods: {},
 	mounted() {
 		fetch("http://jsonplaceholder.typicode.com/posts")
 			.then((res) => res.json())
 			.then((res) => {
-				setTimeout(() => {
-					this.feedDetails = res;
-					console.log(this.feedDetails);
-				}, 2000);
+				this.feedDetails = res;
+				// console.log(this.feedDetails);
 			});
 	},
 });
@@ -84,56 +62,24 @@ export default defineComponent({
 .home {
 	overflow-y: scroll;
 }
-.quotes {
-	width: 100%;
-	margin-bottom: 10px;
-	background-color: $Teal-and-Gray-2-hex;
 
-	.window {
-		width: 60%;
-		margin: auto;
-		color: white;
-		border-left: 4px solid white;
-		font-style: italic;
-		position: relative;
-		top: 5px;
-		padding-top: 5px;
-		@keyframes enter {
-			0% {
-				opacity: 0;
-			}
-			100% {
-				opacity: 1;
-			}
-		}
-		animation: enter 0.3s ease-in-out;
-		p {
-			text-align: start;
-			padding: var(--main-padding);
-			&.quote {
-			}
-			&.author {
-				text-align: right;
-			}
-		}
-	}
-	.close-button {
-		width: 60%;
-		margin: auto;
-		color: white;
-		border-left: none;
-		display: flex;
-		justify-content: flex-end;
-		button {
-			border: none;
-			background-color: transparent;
-			padding: 5px 10px;
-			border-radius: 10px;
-			margin: 5px;
-			color: white;
-			font-weight: 500;
-			letter-spacing: 0.5px;
-		}
-	}
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
 }
 </style>

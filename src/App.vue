@@ -1,5 +1,5 @@
 <template>
-	<NavBar />
+	<NavBar :interests="interests" />
 	<router-view class="content" />
 	<Footer />
 </template>
@@ -9,11 +9,24 @@ import { defineComponent } from "vue";
 import NavBar from "@/components/NavBar.vue";
 import Footer from "@/components/Footer.vue";
 
+import Category from "./Models/Category";
+import { getCategories } from "@/backendServices/commonServices";
+
 export default defineComponent({
 	name: "app",
+	data() {
+		return {
+			interests: [] as Category[], //new Array<Category>()
+		};
+	},
 	components: {
 		NavBar,
 		Footer,
+	},
+	async mounted() {
+		let data: Category[] = [];
+		data = await getCategories();
+		this.interests = [...this.interests, ...data];
 	},
 });
 </script>
